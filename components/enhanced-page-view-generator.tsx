@@ -214,7 +214,7 @@ export function EnhancedPageViewGeneratorComponent() {
       <Card className="w-full max-w-3xl mx-auto bg-gray-800 border-gray-700">
         <CardHeader>
           <CardTitle className="text-2xl font-bold text-gray-100">
-            Enhanced Page View Event Generator
+            Page View Tracker for A/B Layouts
           </CardTitle>
           <CardDescription className="text-gray-400">
             Generate 2.5 million page view events with layout design attribution
