@@ -1,5 +1,7 @@
 # Enhanced Page View Event Generator
 
+https://github.com/user-attachments/assets/bf66b865-1e42-4a05-aae6-fd8a57e20ad8
+
 This code demonstrates how to process a large number of events (2.5 million) efficiently using Web Workers in a React application. It simulates generating and analyzing page view events for two different layout designs.
 
 ## What the Code Does
