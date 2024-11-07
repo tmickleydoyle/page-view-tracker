@@ -1,36 +1,37 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Enhanced Page View Event Generator
 
-## Getting Started
+This code demonstrates how to process a large number of events (2.5 million) efficiently using Web Workers in a React application. It simulates generating and analyzing page view events for two different layout designs.
 
-First, run the development server:
+## What the Code Does
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. **Event Generation**: 
+   - Uses a Web Worker to generate 2.5 million synthetic page view events.
+   - Each event includes details like event ID, user ID, timestamp, page URL, layout design, and user experience.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. **Data Processing**:
+   - Simulates two layout designs: "Design Static Layout" and "Design Dynamic Layout".
+   - Tracks positive and negative user experiences for each design.
+   - Processes events in batches of 1000 to maintain performance.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. **Real-time Analysis**:
+   - Calculates and updates statistics for each layout design as events are generated.
+   - Determines a "winner" based on which design has a 5% or greater advantage in positive experiences.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. **User Interface**:
+   - Displays a progress bar showing the number of events processed.
+   - Shows real-time statistics for each layout design.
+   - Provides start, stop, and reset controls for the event generation process.
+   - Displays a sample event for reference.
 
-## Learn More
+5. **Performance Optimization**:
+   - Utilizes a Web Worker to perform the event generation and processing off the main thread.
+   - Uses a BroadcastChannel for communication between the worker and the main thread.
+   - Updates the UI efficiently using React hooks and state management.
 
-To learn more about Next.js, take a look at the following resources:
+## Key Components
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `EnhancedPageViewGeneratorComponent`: The main React component that renders the UI and manages the event generation process.
+- Web Worker: Handles the event generation and initial processing to avoid blocking the main thread.
+- BroadcastChannel: Facilitates communication between the Web Worker and the main thread.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This code serves as a demonstration of handling large-scale data processing tasks in a web application while maintaining a responsive user interface.
